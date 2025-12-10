@@ -1,0 +1,49 @@
+body {
+  background: #f6fcfb;
+  overflow: hidden;
+}
+
+.background-shape {
+  position: absolute;
+  top: -80px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  background: #c5f3df;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.login-card {
+  width: 950px;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.illustration-box {
+  background: #f7f9fc;
+}
+
+.input-box input {
+  height: 50px;
+  border-radius: 10px;
+}
+
+.input-box .input-group-text {
+  border-radius: 10px 0 0 10px;
+}
+
+.login-btn {
+  height: 45px;
+  border-radius: 10px;
+}
+
+.create-btn {
+  height: 45px;
+  border-radius: 10px;
+}
+
+.img-fluid {
+  width: 90%;
+}

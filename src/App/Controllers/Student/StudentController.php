@@ -31,7 +31,7 @@ class StudentController extends AuthenticatedController
     {
         return $this->view('admin/students', [
             'title'     => 'Student Management',
-            'showTopbar'=> false,
+            'showTopbar' => false,
             'students'  => $this->studentService->getAllStudents()
         ]);
     }
@@ -47,14 +47,29 @@ class StudentController extends AuthenticatedController
     public function createStudentAdmin()
     {
         $data = $this->request->only([
-            'firstname','lastname','middlename','email','contact',
-            'region','province','city','barangay','address',
-            'birthdate','sex',
+            'firstname',
+            'lastname',
+            'middlename',
+            'email',
+            'contact',
+            'region',
+            'province',
+            'city',
+            'barangay',
+            'address',
+            'birthdate',
+            'sex',
 
-            'parent_firstname','parent_lastname','parent_middlename',
-            'parent_contact','parent_occupation',
-            'parent_region','parent_province','parent_city',
-            'parent_barangay','parent_house_no',
+            'parent_firstname',
+            'parent_lastname',
+            'parent_middlename',
+            'parent_contact',
+            'parent_occupation',
+            'parent_region',
+            'parent_province',
+            'parent_city',
+            'parent_barangay',
+            'parent_house_no',
 
             'same_as_student'
         ]);
@@ -92,19 +107,18 @@ class StudentController extends AuthenticatedController
 
     public function viewStudent($id)
     {
-        $student = $this->studentService->getStudentById((int)$id);
+        $info = $this->studentService->getStudentInfo((int)$id);
 
-        if (!$student) {
+        if (!$info) {
             Session::flash('error', 'Student not found.');
             return Helper::redirect('/students');
         }
 
         return $this->view('admin/view_student', [
-            'title' => 'View Student',
+            'title' => 'Student Information',
             'showTopbar' => false,
-            'student' => $student
+            'student' => $info['student'],
+            'parent' => $info['parent']
         ]);
     }
-
-    
 }

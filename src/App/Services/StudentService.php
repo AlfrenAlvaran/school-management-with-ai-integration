@@ -164,6 +164,7 @@ class StudentService extends BaseService
         if (!$student) return false;
 
         $this->userService->deleteUser($student->student_id);
+        Parents::where('student_id', '=', $id)->delete();
 
         return $student->delete();
     }
@@ -176,5 +177,19 @@ class StudentService extends BaseService
     public function getStudentById(int $id)
     {
         return $this->model->find($id);
+    }
+
+    public function getStudentInfo(int $id)
+    {
+        $student = $this->model->find($id);  
+
+        if(!$student) return null;
+
+        $parent = Parents::where("student_id" ,"=", $id)->first();
+
+        return [
+            'student' => $student,
+            "parent" => $parent,
+        ];
     }
 }

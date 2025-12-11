@@ -41,7 +41,7 @@ $router->post('/create-section', [SectionController::class, 'createSection']);
 $router->get('/students', [StudentController::class, 'AdminStudentPage']);
 $router->get('/students/add-student', [StudentController::class, 'addStudentPage']);
 $router->post('/students/create-student', [StudentController::class, 'createStudentAdmin']);
-
+$router->get('/view/{id}', [StudentController::class, 'viewStudent']);
 // Enrollments Routes 
 $router->get('/enrollments', [EnrollmentController::class, 'enrollmentPage']);
 

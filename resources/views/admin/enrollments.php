@@ -21,14 +21,16 @@
             <thead class="table-light text-center">
                 <tr>
                     <th>Student ID</th>
-                    <th>Curriculum Year</th>
+                    <th>Name</th>
                     <th></th>
                     <th class="text-center">Actions</th>
                 </tr>
             </thead>
 
             <tbody>
+                <?php foreach ($studentList as $student) : ?>
 
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>

@@ -23,7 +23,6 @@ class EnrollmentController extends AuthenticatedController
             [
                 'title' => 'Enrollment Management',
                 'showTopbar' => false,
-                "studentsList" => $this->studentService->showStudentList()
             ]
         );
     }

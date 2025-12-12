@@ -28,9 +28,7 @@
             </thead>
 
             <tbody>
-                <?php foreach ($studentList as $student) : ?>
-
-                <?php endforeach; ?>
+               
             </tbody>
         </table>
     </div>

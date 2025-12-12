@@ -103,7 +103,6 @@ class StudentService extends BaseService
             'barangay_code'  => $data['parent_barangay'] ?? '',
             'house_no'       => $data['parent_house_no'] ?? '',
 
-            // Lookup readable names
             'region'   => $this->getLocationName('region', $data['parent_region']) ?? 'N/A',
             'province' => $this->getLocationName('province', $data['parent_province']) ?? 'N/A',
             'city'     => $this->getLocationName('city', $data['parent_city']) ?? 'N/A',

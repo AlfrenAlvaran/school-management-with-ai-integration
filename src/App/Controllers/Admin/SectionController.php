@@ -60,7 +60,6 @@ class SectionController extends AuthenticatedController
 
         $this->sectionService->createSection($data, $programId);
 
-        Helper::redirect('/sections', 201);
-        exit;
+        return Helper::redirect('/sections', 201);
     }
 }

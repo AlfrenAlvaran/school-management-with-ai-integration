@@ -31,10 +31,16 @@
             <tbody>
                 <?php foreach ($sections as $section): ?>
                     <tr>
-                        <td><?=  $section->year_level ?><?= htmlspecialchars($section->section_code) ?></td>
+                        <td><?= $section->year_level ?><?= htmlspecialchars($section->section_code) ?></td>
                         <td><?= htmlspecialchars($section->program->code) ?></td>
                         <td class="text-center">
-                            <!-- Actions can be added here -->
+                            <form action="/delete/section/<?= $section->id ?>" method="POST" style="display:inline;"
+                                onsubmit="return confirm('Are you sure you want to delete this section?');">
+                                <input type="hidden" name="csrf_token" value="<?= \Core\Http\Session::csrfToken() ?>">
+                                <button type="submit" class="btn btn-link p-0 m-0 text-danger">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 <?php endforeach; ?>

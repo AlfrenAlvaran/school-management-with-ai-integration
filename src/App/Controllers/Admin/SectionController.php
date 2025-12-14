@@ -7,6 +7,7 @@ use App\Services\ProgramService;
 use App\Services\SectionService;
 use Core\Helpers\Helper;
 use Core\Http\Request;
+use Core\Http\Session;
 use Core\Validation\Validator;
 
 class SectionController extends AuthenticatedController
@@ -61,5 +62,22 @@ class SectionController extends AuthenticatedController
         $this->sectionService->createSection($data, $programId);
 
         return Helper::redirect('/sections', 201);
+    }
+
+
+    public function deleteSection($id)
+    {
+        if (!Session::validateCsrfToken($this->request->post('csrf_token'))) {
+            Session::flash('error', 'Invalid CSRF token.');
+            return Helper::redirect('/sections');
+        }
+
+        if ($this->sectionService->deleteSection((int) $id)) {
+            Session::flash('success', 'Section deleted successfully.');
+        } else {
+            Session::flash('error', 'Section not found.');
+        }
+
+        return Helper::redirect('/sections');
     }
 }

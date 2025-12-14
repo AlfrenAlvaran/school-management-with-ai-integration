@@ -35,6 +35,7 @@ $router->post('/create-subject', [SubjectController::class, 'createSubject']);
 // sections Routes
 $router->get('/sections', [SectionController::class, 'sectionPage']);
 $router->post('/create-section', [SectionController::class, 'createSection']);
+$router->post('/delete/section/{id}', [SectionController::class, 'deleteSection']);
 
 
 // students Routes
@@ -49,7 +50,6 @@ $router->get('/enrollments', [EnrollmentController::class, 'enrollmentPage']);
 
 $router->get('/dashboard', [DashboardController::class, 'dashboard']);
 $router->post('/student/delete/{id}', [StudentController::class, 'deleteStudent']);
-
 
 
 

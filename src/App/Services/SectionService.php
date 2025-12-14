@@ -11,7 +11,6 @@ class SectionService extends BaseService
     public function __construct()
     {
         parent::__construct(Sections::class);
-        
     }
 
     // create new section
@@ -41,9 +40,15 @@ class SectionService extends BaseService
     // Get section with Program 
     public function getSectionWithProgram()
     {
-        
+
         return $this->model->query()->with('program')->get();
-        
     }
 
+    public function deleteSection(int $id): bool
+    {
+        return $this->model
+            ->query()
+            ->where('id', '=', $id)
+            ->delete();
+    }
 }

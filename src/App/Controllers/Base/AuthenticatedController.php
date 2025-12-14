@@ -27,12 +27,14 @@ abstract class AuthenticatedController extends Controller
         $userId = Session::get('user_id');
 
         if (!$userId) {
+            Session::flash('error', 'Please login first to continue.');
             Helper::redirect('/');
             exit;
         }
 
         $this->currentUser = $this->service->findById($userId);
     }
+
 
     protected function view(string $name, array $data = [])
     {

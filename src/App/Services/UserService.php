@@ -60,4 +60,9 @@ class UserService
     {
         return User::where('email', '=', $id)->first();
     }
+
+    public function getAllUsers()
+    {
+        return User::all();
+    }
 }

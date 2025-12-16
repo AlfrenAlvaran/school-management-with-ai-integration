@@ -12,77 +12,54 @@ use Core\Views\Views;
 abstract class AuthenticatedController extends Controller
 {
     protected UserService $service;
-    protected object $currentUser;
+    protected $currentUser;
     protected string $layout = 'main';
 
     public function __construct(Request $request)
     {
         parent::__construct($request);
         $this->service = new UserService();
-        $this->authenticate();
+        $this->requireAuthentication();
     }
 
-    private function authenticate(): void
+    public function requireAuthentication(): void
     {
-        Session::start();
-
         $userId = Session::get('user_id');
 
-        if (!$userId || !is_numeric($userId)) {
-            $this->forceLogout();
+        if (!$userId) {
+            Session::flash('error', 'Please login first to continue.');
+            Helper::redirect('/');
+            exit;
         }
 
-        $user = $this->service->findById((int) $userId);
-
-        if (!$user || !isset($user->role)) {
-            $this->forceLogout();
-        }
-
-        // Prevent session fixation
-        if (!Session::get('_regenerated')) {
-            session_regenerate_id(true);
-            Session::put('_regenerated', true);
-        }
-
-        $this->currentUser = $user;
+        $this->currentUser = $this->service->findById($userId);
     }
 
-    protected function view(string $name, array $data = []): void
+
+    protected function view(string $name, array $data = [])
     {
-        $this->setLayoutByRole($this->currentUser->role);
+        // Determine layout dynamically based on user role
+        $this->layoutByRole($this->currentUser->role);
+
+        // Pass current user to view
         $data['user'] = $this->currentUser;
 
+        // Render view with your Views class
         $views = new Views();
-        $views->layout($this->layout);
+        $views->layout($this->layout);  // set layout
         $views->render($name, $data);
     }
 
-    private function setLayoutByRole(string $role): void
+    private function layoutByRole(string $role): void
     {
-        $this->layout = match ($role) {
+        $layouts = [
             'supervisor' => 'supervisor',
             'admin'      => 'admin',
             'teacher'    => 'teacher',
             'student'    => 'student',
-            'parent'     => 'parent',
-            default      => 'main'
-        };
-    }
+            'parent'     => 'parent'
+        ];
 
-    protected function authorize(array $roles): void
-    {
-        if (!in_array($this->currentUser->role, $roles, true)) {
-            Session::flash('error', 'Unauthorized access.');
-            Helper::redirect('/403');
-            exit;
-        }
-    }
-
-    private function forceLogout(): void
-    {
-        Session::destroy();
-        Session::flash('error', 'Your session has expired. Please login again.');
-        Helper::redirect('/');
-        exit;
+        $this->layout = $layouts[$role] ?? 'main';
     }
 }

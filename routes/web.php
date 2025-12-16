@@ -8,7 +8,7 @@ use App\Controllers\Admin\SubjectController;
 use App\Controllers\AuthController;
 use App\Controllers\DashboardController;
 use App\Controllers\Student\StudentController;
-
+use App\Controllers\SuperAdmin\UserController;
 
 // Authentication Routes
 
@@ -52,6 +52,9 @@ $router->get('/dashboard', [DashboardController::class, 'dashboard']);
 $router->post('/student/delete/{id}', [StudentController::class, 'deleteStudent']);
 
 
-
 // Student Routes
 $router->get('/portal', [StudentController::class, 'studentPage']);
+
+
+// Users List
+$router->get('/users', [UserController::class, 'users']);

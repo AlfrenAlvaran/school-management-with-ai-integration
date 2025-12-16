@@ -22,4 +22,5 @@ class EnrollmentService extends BaseService
     {
         return $this->model->all();
     }
+    
 }

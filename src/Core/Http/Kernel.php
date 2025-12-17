@@ -2,10 +2,14 @@
 
 namespace Core\Http;
 
+use Core\Middlewares\AuthMiddleware;
+
 class Kernel
 {
 
-    protected array $globalMiddleware = [];
+    protected array $globalMiddleware = [
+        AuthMiddleware::class
+    ];
 
     public function handle(Request $request): Response|Request
     {

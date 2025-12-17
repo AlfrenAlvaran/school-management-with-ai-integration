@@ -116,4 +116,9 @@ class Session
 
         session_destroy();
     }
+
+    public static function has(string $key) 
+    {
+        return isset($_SESSION[$key]);
+    }
 }

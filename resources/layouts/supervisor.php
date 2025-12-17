@@ -28,6 +28,7 @@
         <h5 class="text-center mb-4">SAdmin</h5>
         <a href="/dashboard"><i class="bi bi-speedometer2"></i> Dashboard</a>
         <a href="/curriculum"><i class="bi bi-journal-text"></i> Curriculum</a>
+        <a href="/department"><i class="bi bi-mortarboard"></i> Department</a>
         <a href="/users" class="d-flex align-items-center gap-2">
            <i class="bi bi-people"></i>
             <span>Users</span>

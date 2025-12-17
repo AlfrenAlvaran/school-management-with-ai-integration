@@ -65,4 +65,9 @@ class UserService
     {
         return User::all();
     }
+
+    public function getTeacher()
+    {
+        return User::query()->where('role', '=', 'teacher');
+    }
 }

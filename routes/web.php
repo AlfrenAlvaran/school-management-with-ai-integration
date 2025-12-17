@@ -8,6 +8,7 @@ use App\Controllers\Admin\SubjectController;
 use App\Controllers\AuthController;
 use App\Controllers\DashboardController;
 use App\Controllers\Student\StudentController;
+use App\Controllers\SuperAdmin\DepartmentController;
 use App\Controllers\SuperAdmin\UserController;
 
 // Authentication Routes
@@ -58,3 +59,9 @@ $router->get('/portal', [StudentController::class, 'studentPage']);
 
 // Users List
 $router->get('/users', [UserController::class, 'users']);
+
+
+
+// Super Admin
+$router->get('/add-teacher', [UserController::class, 'showFormTeacher']);
+$router->get('/department', [DepartmentController::class, 'showDepartmentList']);

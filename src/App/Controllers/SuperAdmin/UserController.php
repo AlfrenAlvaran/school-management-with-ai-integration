@@ -25,7 +25,25 @@ class UserController extends AuthenticatedController
         ]);
     }
 
-    public function createUser() {
-        
+    public function showFormTeacher()
+    {
+        return $this->view($this->currentUser->role.'/teacher_form',
+        [
+            'title' => "Teacher Information",
+            'showTopbar'=>false,
+            
+        ]);
     }
+
+    public function createUser() {
+        $data=$this->request->only([
+            'name',
+            'email',
+            'password',
+        ]);
+
+
+    }
+
+   
 }

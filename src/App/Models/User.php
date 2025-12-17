@@ -15,5 +15,4 @@ class User extends Model {
     ];
 
     protected bool $timestamps = true;
-
 }

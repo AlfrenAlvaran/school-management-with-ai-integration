@@ -6,7 +6,6 @@
         </h2>
 
         <div class="d-flex gap-2">
-
             <select id="roleFilter" class="form-select form-select-sm w-auto">
                 <option value="">All Roles</option>
                 <option value="supervisor">supervisor</option>
@@ -18,6 +17,10 @@
             <button type="button" class="btn btn-primary btn-sm shadow-sm" data-bs-toggle="modal" data-bs-target="#subjectModal">
                 <i class="bi bi-plus-lg"></i> Add
             </button>
+
+            <a href="/add-teacher" class="btn btn-primary btn-sm shadow-sm">
+                <i class="bi bi-plus-lg"></i> Add Teacher
+            </a>
 
         </div>
     </div>

@@ -24,4 +24,7 @@ class DepartmentController extends AuthenticatedController
             'teachers'=> $this->userService->getTeacher()
         ]);
     }
+
+
+    
 }

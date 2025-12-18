@@ -6,7 +6,7 @@
         <h2 class="mb-0">Teacher Information</h2>
     </div>
 
-    <form action="/students/create-student" method="post" id="studentForm">
+    <form action="/create-teacher" method="post" id="studentForm">
 
         <div class="row mb-3">
             <div class="col">
@@ -25,12 +25,12 @@
 
         <div class="mb-3">
             <label for="Email" class="form-label">Email</label>
-            <input type="text" class="form-control shadow-sm">
+            <input type="text" name="email" class="form-control shadow-sm">
         </div>
 
         <div class="mb-3">
             <label for="Position" class="form-label">Position</label>
-            <select name="" id="" class="form-control shadow-sm">
+            <select name="position" id="" class="form-control shadow-sm">
                 <option value="" class="text-center"><---------- Position ----------></option>
                 <option value="supervisor" class="text-center">Supervisor</option>
                 <option value="admin" class="text-center">Admin</option>
@@ -41,19 +41,27 @@
 
         <div class="mb-3">
             <label for="specialization" class="form-label">Specialization</label>
-            <input type="text" class="form-control shadow-sm">
+            <input type="text" name="specialization" class="form-control shadow-sm">
         </div>
 
         <div class="mb-3">
             <label for="birthdate" class="form-label">Birth Date</label>
-            <input type="date" name="" id="" class="form-control">
+            <input type="date" name="birthdate" id="" class="form-control">
         </div>
 
         <div class="mb-3">
             <label for="gender" class="form-label">Gender</label>
             <select name="gender" id="" class="form-select">
-                <option value="">Male</option>
-                <option value="">Female</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="role" class="form-label">Role</label>
+            <select name="role" id="" class="form-select">
+                <option value="teacher">teacher</option>
+                <option value="teacher">dean</option>
             </select>
         </div>
 

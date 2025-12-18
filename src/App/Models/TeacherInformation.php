@@ -6,13 +6,14 @@ use Core\Models\Model;
 
 class TeacherInformation extends Model
 {
-    protected $table = 'teacher_information';
+    protected string $table = 'teacher_information';
 
     protected array $fillable = [
         'firstname',
         'lastname',
         'middlename',
         'gender',
+        'email',
         'department_id',
         'position',
         'specialization',
@@ -20,7 +21,7 @@ class TeacherInformation extends Model
         'date_hired',
     ];
 
-    protected $timestamps = true;
+    protected bool $timestamps = true;
 
     
 }

@@ -58,10 +58,11 @@ $router->get('/portal', [StudentController::class, 'studentPage']);
 
 
 // Users List
-$router->get('/users', [UserController::class, 'users']);
 
 
 
 // Super Admin
 $router->get('/add-teacher', [UserController::class, 'showFormTeacher']);
 $router->get('/department', [DepartmentController::class, 'showDepartmentList']);
+$router->get('/users', [UserController::class, 'users']);
+$router->post('/create-teacher', [UserController::class, 'createTeacher']);

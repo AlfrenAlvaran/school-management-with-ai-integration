@@ -30,7 +30,13 @@
 
         <div class="mb-3">
             <label for="Position" class="form-label">Position</label>
-            <input type="text" class="form-control shadow-sm">
+            <select name="" id="" class="form-control shadow-sm">
+                <option value="" class="text-center"><---------- Position ----------></option>
+                <option value="supervisor" class="text-center">Supervisor</option>
+                <option value="admin" class="text-center">Admin</option>
+                <option value="teacher" class="text-center">Teacher</option>
+                <option value="dean" class="text-center">Dean</option>
+            </select>
         </div>
 
         <div class="mb-3">
@@ -40,7 +46,15 @@
 
         <div class="mb-3">
             <label for="birthdate" class="form-label">Birth Date</label>
-            <input type="date" name="" id=""  class="form-control">
+            <input type="date" name="" id="" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label for="gender" class="form-label">Gender</label>
+            <select name="gender" id="" class="form-select">
+                <option value="">Male</option>
+                <option value="">Female</option>
+            </select>
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

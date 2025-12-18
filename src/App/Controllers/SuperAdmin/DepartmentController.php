@@ -13,7 +13,6 @@ class DepartmentController extends AuthenticatedController
     {
         parent::__construct($request);
         $this->userService = new UserService();
-
     }
 
     public function showDepartmentList()
@@ -21,10 +20,23 @@ class DepartmentController extends AuthenticatedController
         return $this->view($this->currentUser->role . '/department', [
             'title' => "Department Management",
             'showTopbar' => false,
-            'teachers'=> $this->userService->getTeacher()
+            'teachers' => $this->userService->getTeacher()
         ]);
     }
 
+    public function createTeacher()
+    {
+        $data = $this->request->only([
+            'name',
+            'email',
+            'birthdate',
+            'department_id',
+            'position',
+            'specialization',
+            'employment_status',
+        ]);
 
-    
+
+        
+    }
 }

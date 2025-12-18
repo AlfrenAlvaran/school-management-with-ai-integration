@@ -9,7 +9,10 @@ class TeacherInformation extends Model
     protected $table = 'teacher_information';
 
     protected array $fillable = [
-        'user_id',
+        'firstname',
+        'lastname',
+        'middlename',
+        'gender',
         'department_id',
         'position',
         'specialization',

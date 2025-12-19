@@ -38,7 +38,6 @@ if ($response instanceof Response) {
 }
 
 
-
 $controllerResponse = $router->dispatch($request);
 
 if ($controllerResponse instanceof Response) {

@@ -37,11 +37,9 @@
                 </tr>
             </thead>
 
-
-
             <tbody>
                 <?php foreach ($users as $user): ?>
-                   
+
                     <tr>
                         <td><?= htmlspecialchars($user->name) ?></td>
                         <td><?= htmlspecialchars($user->email) ?></td>

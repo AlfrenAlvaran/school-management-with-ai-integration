@@ -26,7 +26,6 @@ class TeacherService extends BaseService
         return $teacher;
     }
 
-
     public function creteUserTeacherAccount($data ,$role)
     {
         $this->userService->register(
@@ -34,8 +33,9 @@ class TeacherService extends BaseService
                 'name' => "{$data->firstname} {$data->middlename} {$data->lastname}",
                 'email' => $data->email,
                 'password' => $data->birthdate,
-                'role' => $role
+                'role' => $data->position
             )
         );
     }
+
 }

@@ -18,7 +18,7 @@
                 <i class="bi bi-plus-lg"></i> Add
             </button>
 
-            <a href="/add-teacher" class="btn btn-primary btn-sm shadow-sm">
+            <a href="/form-teacher" class="btn btn-primary btn-sm shadow-sm">
                 <i class="bi bi-plus-lg"></i> Add Teacher
             </a>
 

@@ -55,20 +55,40 @@ class UserController extends AuthenticatedController
         Helper::redirect('/users', 201);
     }
 
-    public function createTeacher()
-    {
-        $data = $this->request->only([
-            'firstname',
-            'middlename',
-            'lastname',
-            'email',
-            'birthdate',
-            'department',
-            'role',
-        ]);
+    // public function createTeacher()
+    // {
+    //     $data = $this->request->only([
+    //         'firstname',
+    //         'middlename',
+    //         'lastname',
+    //         'email',
+    //         'birthdate',
+    //         'department',
+    //         'role',
+    //     ]);
+
+    //     $this->teacherService->createTeacher($data);
+
+    //     return Helper::redirect('/users', 201);
+    // }
+
+
+    public function createTeacher() {
+        $data=$this->request->only(
+            array(
+                'firstname',
+                'lastname',
+                'email',
+                'birthdate',
+                'department',
+                'role',
+                'position',
+                'specialization',
+                'employment_status'
+            )
+        );
 
         $this->teacherService->createTeacher($data);
-
-        return Helper::redirect('/users', 201);
+        return Helper::redirect('/users');
     }
 }

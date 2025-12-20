@@ -73,8 +73,9 @@ class UserController extends AuthenticatedController
     // }
 
 
-    public function createTeacher() {
-        $data=$this->request->only(
+    public function createTeacher()
+    {
+        $data = $this->request->only(
             array(
                 'firstname',
                 'lastname',

@@ -57,11 +57,9 @@ $router->post('/student/delete/{id}', [StudentController::class, 'deleteStudent'
 $router->get('/portal', [StudentController::class, 'studentPage']);
 
 
-// Users List
 
 
-
-// Super Admin
+// Super Admin / supervisor
 $router->get('/form-teacher', [UserController::class, 'showFormTeacher']);
 $router->get('/department', [DepartmentController::class, 'showDepartmentList']);
 $router->get('/users', [UserController::class, 'users']);

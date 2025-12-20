@@ -19,7 +19,7 @@ class OtpService
         $otp = random_int(100000, 999999);
         Session::set('otp', $otp);
         Session::set('otp_user_id', $userId);
-        Session::set('otp_expires', time() + 300); // OTP valid for 5 minutes
+        Session::set('otp_expires', time() + 300); 
         Session::set('otp_attempts', 0);
         return $otp;
     }

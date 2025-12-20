@@ -54,8 +54,6 @@ class UserService
         return false;
     }
 
-
-    
     public function getStudentById(string $id)
     {
         return User::where('email', '=', $id)->first();

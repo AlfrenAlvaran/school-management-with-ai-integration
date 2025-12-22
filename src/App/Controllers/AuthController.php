@@ -79,7 +79,6 @@ class AuthController extends Controller
         }
     }
 
-
     public function showRegister()
     {
 
@@ -92,10 +91,6 @@ class AuthController extends Controller
             'old' => $old
         ]);
     }
-
-
-
-
 
     public function register()
     {

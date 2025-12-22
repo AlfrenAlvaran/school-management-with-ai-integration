@@ -19,7 +19,7 @@ class OtpService
         $otp = random_int(100000, 999999);
         Session::set('otp', $otp);
         Session::set('otp_user_id', $userId);
-        Session::set('otp_expires', time() + 300); 
+        Session::set('otp_expires', time() + 300);
         Session::set('otp_attempts', 0);
         return $otp;
     }
@@ -45,13 +45,12 @@ class OtpService
             return false;
         }
 
-
         $attempts = Session::get('otp_attempts') ?? 0;
         if ($attempts >= 5) {
             return false;
         }
         Session::set('otp_attempts', $attempts + 1);
-        if($otp === Session::get('otp')) {
+        if ($otp === Session::get('otp')) {
             Session::remove('otp');
             Session::remove('otp_user_id');
             Session::remove('otp_expires');
@@ -75,10 +74,8 @@ class OtpService
                             <div style='display:inline-block; padding:20px 40px; background:#4F46E5; color:#ffffff; font-size:32px; font-weight:bold; letter-spacing:4px; border-radius:8px; margin-bottom:30px;'>
                                 {$otp}
                             </div>
-                            
                             <p style='color:#555555; font-size:14px; margin-bottom:10px;'>If you did not request this, you can safely ignore this email.</p>
                             <p style='color:#555555; font-size:14px;'>Need help? <a href='#' style='color:#4F46E5; text-decoration:none;'>Contact Support</a></p>
-                            
                             <hr style='border:none; border-top:1px solid #eeeeee; margin:30px 0;' />
                             
                             <p style='color:#999999; font-size:12px;'>© " . date('Y') . " MyApp. All rights reserved.</p>
